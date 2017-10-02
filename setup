@@ -1,11 +1,11 @@
 #!/bin/bash
 
-## remove libreoffice
-sudo apt -y remove libreoffice-*
-
 ## update system
 sudo apt update
 sudo apt -y upgrate
+
+## remove libreoffice
+sudo apt -y remove libreoffice-*
 
 ## install nodejs
 wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -25,3 +25,6 @@ wget -O $vsc_tmp https://go.microsoft.com/fwlink/?LinkID=760868
 sudo dpkg -i $vsc_tmp
 sudo apt-get install -f
 
+## update system
+sudo apt update
+sudo apt -y upgrate
