@@ -1,0 +1,27 @@
+#!/bin/bash
+
+## remove libreoffice
+sudo apt -y remove libreoffice-*
+
+## update system
+sudo apt update
+sudo apt -y upgrate
+
+## install nodejs
+wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo "" > ~/.profile
+echo "export PATH=~/.npm-global/bin:\$PATH" > ~/.profile
+source ~/.profile
+
+## install angular
+npm install -g @angular/cli
+
+## install Visual Studio Code
+vsc_tmp=$(mktemp)
+wget -O $vsc_tmp https://go.microsoft.com/fwlink/?LinkID=760868
+sudo dpkg -i $vsc_tmp
+sudo apt-get install -f
+
