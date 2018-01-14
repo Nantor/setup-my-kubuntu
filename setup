@@ -4,9 +4,14 @@
 sudo apt update
 sudo apt -y upgrade
 
-## remove libreoffice
-sudo apt -y remove libreoffice-* kmail korganizer ktorrent* akregator krdc k3b*
-sudo apt -y install chromium-browser docker
+## install packs
+sudo apt -y install gcc perl make chromium-browser firefox mousepad curl gimp apt-transport-https ca-certificates software-properties-common
+
+## install docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt -y install docker-ce
 
 ## install nodejs
 #wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
