@@ -5,20 +5,20 @@ sudo apt update
 sudo apt -y upgrade
 
 ## install packs
-sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common
+sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla
 
 ## install docker
 curl -fsSL get.docker.com | sudo sh
 sudo usermod -aG docker $(whoami)
 
 ## install nodejs
-#wget -qO- https://deb.nodesource.com/setup_9.x | sudo -E bash -
-#sudo apt-get install -y nodejs
-#mkdir ~/.npm-global
-#npm config set prefix '~/.npm-global'
-#echo "" > ~/.profile
-#echo "export PATH=~/.npm-global/bin:\$PATH" > ~/.profile
-#source ~/.profile
+wget -qO- https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo "" > ~/.profile
+echo "export PATH=~/.npm-global/bin:\$PATH" > ~/.profile
+source ~/.profile
 
 ## install Visual Studio Code
 vsc_tmp=$(mktemp)
