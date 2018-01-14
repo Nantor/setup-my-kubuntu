@@ -5,7 +5,7 @@ sudo apt update
 sudo apt -y upgrade
 
 ## install packs
-sudo apt -y install git gcc perl make chromium-browser firefox mousepad curl gimp apt-transport-https ca-certificates software-properties-common
+sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common
 
 ## install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
