@@ -1,4 +1,4 @@
-#!/bin/bash
+sudo usermod -aG docker#!/bin/bash
 
 ## update system
 sudo apt update
@@ -8,10 +8,8 @@ sudo apt -y upgrade
 sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common
 
 ## install docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt update
-sudo apt -y install docker-ce
+curl -fsSL get.docker.com | sudo sh
+sudo usermod -aG docker $(whoami)
 
 ## install nodejs
 #wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
