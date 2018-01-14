@@ -1,4 +1,4 @@
-sudo usermod -aG docker#!/bin/bash
+#!/bin/bash
 
 ## update system
 sudo apt update
