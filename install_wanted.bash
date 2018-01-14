@@ -12,7 +12,7 @@ curl -fsSL get.docker.com | sudo sh
 sudo usermod -aG docker $(whoami)
 
 ## install nodejs
-#wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
+#wget -qO- https://deb.nodesource.com/setup_9.x | sudo -E bash -
 #sudo apt-get install -y nodejs
 #mkdir ~/.npm-global
 #npm config set prefix '~/.npm-global'
