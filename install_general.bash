@@ -14,7 +14,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 
 ## install nodejs
-wget -qO- https://deb.nodesource.com/setup_9.x | sudo -E bash -
+wget -qO - https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -32,6 +32,10 @@ sudo apt-get install -f
 wget -O $vsc_tmp $(curl -s 'https://data.services.jetbrains.com/products/releases?code=PCC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['PCC'][0]['downloads']['linux']['link'])")
 sudo tar xf $vsc_tmp -C /opt/
 sudo ln -s /opt/pycharm-community-*/bin/pycharm.sh /usr/bin/pycharm
+
+## install Google Chrome
+wget -O $vsc_tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install $vsc_tmp
 
 ## clean up
 sudo apt update
