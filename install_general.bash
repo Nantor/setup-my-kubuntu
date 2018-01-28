@@ -36,8 +36,9 @@ sudo tar xf $vsc_tmp -C /opt/
 sudo ln -s /opt/pycharm-community-*/bin/pycharm.sh /usr/bin/pycharm
 
 ## install Google Chrome
-wget -O $vsc_tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install $vsc_tmp
+wget -O vsc_tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i $vsc_tmp
+sudo apt-get install -f
 
 ## clean up
 sudo apt update
