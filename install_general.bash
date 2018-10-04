@@ -34,6 +34,16 @@ sudo apt-get install -f
 wget -O $vsc_tmp $(curl -s 'https://data.services.jetbrains.com/products/releases?code=PCC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['PCC'][0]['downloads']['linux']['link'])")
 sudo tar xf $vsc_tmp -C /opt/
 sudo ln -s /opt/pycharm-community-*/bin/pycharm.sh /usr/bin/pycharm
+cat <<EOT | sudo tee "/usr/bin/pycharm-update"
+#!/bin/bash
+sudo rm -fR /opt/pycharm-community-*
+sudo rm -f /usr/bin/pycharm
+vsc_tmp=\$(mktemp)
+wget -O \$vsc_tmp \$(curl -s 'https://data.services.jetbrains.com/products/releases?code=PCC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['PCC'][0]['downloads']['linux']['link'])")
+sudo tar xf \$vsc_tmp -C /opt/
+sudo ln -s /opt/pycharm-community-*/bin/pycharm.sh /usr/bin/pycharm
+EOT
+sudo chmod +x /usr/bin/pycharm-update
 
 ## install Google Chrome
 wget -O vsc_tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
