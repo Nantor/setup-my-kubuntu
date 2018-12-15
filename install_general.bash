@@ -8,7 +8,7 @@ sudo apt update
 sudo apt -y upgrade
 
 ## install packs
-sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla
+sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-9-jdk openjdk-9-source
 
 ## install docker and docker-compose
 curl -fsSL get.docker.com | sudo sh
@@ -44,6 +44,21 @@ sudo tar xf \$vsc_tmp -C /opt/
 sudo ln -s /opt/pycharm-community-*/bin/pycharm.sh /usr/bin/pycharm
 EOT
 sudo chmod +x /usr/bin/pycharm-update
+
+## install JetBrains IntelliJ IDEA
+wget -O $vsc_tmp $(curl -s 'https://data.services.jetbrains.com/products/releases?code=IIC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['IIC'][0]['downloads']['linuxWithoutJDK']['link'])")
+sudo tar xf $vsc_tmp -C /opt/
+sudo ln -s /opt/idea-IC-*/bin/idea.sh /usr/bin/idea
+cat <<EOT | sudo tee "/usr/bin/idea-update"
+#!/bin/bash
+sudo rm -fR /opt/idea-IC-*
+sudo rm -f /usr/bin/idea
+vsc_tmp=\$(mktemp)
+wget -O \$vsc_tmp \$(curl -s 'https://data.services.jetbrains.com/products/releases?code=IIC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['IIC'][0]['downloads']['linuxWithoutJDK']['link'])")
+sudo tar xf \$vsc_tmp -C /opt/
+sudo ln -s /opt/idea-IC-*/bin/idea.sh /usr/bin/idea
+EOT
+sudo chmod +x /usr/bin/idea-update
 
 ## install Google Chrome
 wget -O vsc_tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
