@@ -8,7 +8,7 @@ sudo apt update
 sudo apt -y upgrade
 
 ## install packs
-sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-9-jdk openjdk-9-source
+sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager
 
 ## install docker and docker-compose
 curl -fsSL get.docker.com | sudo sh
