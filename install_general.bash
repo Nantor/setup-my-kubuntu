@@ -11,10 +11,10 @@ sudo apt -y upgrade
 sudo apt -y install git gcc perl make chromium-browser firefox curl gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager
 
 ## install docker and docker-compose
-curl -fsSL get.docker.com | sudo sh
-sudo usermod -aG docker $(whoami)
-sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
 
 ## install nodejs
 wget -qO - https://deb.nodesource.com/setup_11.x | sudo -E bash -
@@ -26,9 +26,9 @@ echo "export PATH=~/.npm-global/bin:\$PATH" > ~/.profile
 source ~/.profile
 
 ## install Visual Studio Code
-wget -O $vsc_tmp https://go.microsoft.com/fwlink/?LinkID=760868
-sudo dpkg -i $vsc_tmp
-sudo apt-get install -f
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
 
 ## install JetBrains PyCharm
 wget -O $vsc_tmp $(curl -s 'https://data.services.jetbrains.com/products/releases?code=PCC&latest=true&type=release' | python3 -c "import sys, json; print(json.load(sys.stdin)['PCC'][0]['downloads']['linux']['link'])")
