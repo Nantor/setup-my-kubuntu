@@ -9,6 +9,7 @@ sudo apt -y install git gcc perl make gimp apt-transport-https ca-certificates s
 
 ## snap install
 sudo snap install chromium
+sudo snap install firefox
 sudo snap install node --channel=11/stable --classic
 sudo snap install pycharm-community --classic
 sudo snap install intellij-idea-ultimate --classic
