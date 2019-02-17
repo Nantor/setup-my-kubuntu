@@ -5,7 +5,7 @@ sudo apt update
 sudo apt -y upgrade
 
 ## install packs
-sudo apt -y install git gcc perl make gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager snap
+sudo apt -y install git gcc perl make gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager snap python3-distutils
 
 ## snap install
 sudo snap install chromium
