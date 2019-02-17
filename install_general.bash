@@ -1,8 +1,5 @@
 #!/bin/bash
 
-## temp-file for downloading packs
-vsc_tmp=$(mktemp)
-
 ## update system
 sudo apt update
 sudo apt -y upgrade
