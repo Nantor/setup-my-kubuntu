@@ -10,6 +10,8 @@ sudo apt -y install git gcc g++ perl make gimp apt-transport-https ca-certificat
 ## install nodejs
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo chown -R `whoami` /usr/lib/node_modules
+sudo chown -R `whoami` /usr/bin
 
 ## install yarn
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
