@@ -9,7 +9,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 ## install packs
 sudo apt update
-sudo apt -y install git gcc g++ perl make gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager snap python3-distutils firefox yarn nodejs
+sudo apt -y install git gcc g++ perl make gimp apt-transport-https ca-certificates software-properties-common filezilla openjdk-11-jdk openjdk-11-source update-manager snap python3-distutils firefox yarn nodejs htop
 
 ## snap install apps
 sudo snap install chromium --classic
