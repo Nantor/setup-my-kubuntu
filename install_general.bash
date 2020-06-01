@@ -1,9 +1,9 @@
 #!/bin/bash
 
-## install nodejs
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+## add nodejs v14
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-## install yarn
+## add yarn
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
